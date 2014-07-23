@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControl type="edu.internet2.middleware.shibboleth.sp.provider.XMLAccessControl">
+    <OR>
+        <RuleRegex require="affiliation">^employee@.+\.cz$</RuleRegex>
+        <NOT>
+            <Rule require="md-entityCategory">http://eduid.cz/uri/idp-group/library</Rule>
+        </NOT>
+    </OR>
+</AccessControl>
