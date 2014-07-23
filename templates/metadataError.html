@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="<shibmlp styleSheet/>" />
+<title>Unknown Identity Provider</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Reservation system</a>
+
+            <!-- Collapsed menu -->
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle pull-left"
+                style="padding-top: 4px; padding-bottom: 4px;">
+                <span style="display: inline-block; margin-top: 5px;"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+                </span> <span style="display: inline-block; padding-top: 2px; vertical-align: top;"> &nbsp;Menu </span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+
+        <h1>Unknown or Unusable Identity Provider</h1>
+
+        <p>The identity provider supplying your login credentials is not authorized for use with this service or does not support the necessary
+            capabilities.</p>
+
+        <p>
+            To report this problem, please contact the site administrator at <a href="mailto:<shibmlp supportContact/>"><shibmlp supportContact /></a>.
+        </p>
+
+        <p>Please include the following error message in any email:</p>
+        <div class="well">
+            <p class="error">
+                <strong>Identity provider lookup failed.</strong>
+            </p>
+            <shibmlpif entityID>
+            <p>
+                <strong>EntityID:</strong>
+                <shibmlp entityID />
+            </p>
+            </shibmlpif>
+            <p>
+                <strong><shibmlp errorType />:</strong>
+                <shibmlp errorText />
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
