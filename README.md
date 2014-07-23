@@ -31,7 +31,11 @@ As a base for the main configuration you can use the sample included in this rep
 
 ### Error handling
 
-Custom error messages are configured in the `<Errors/>` element. You can set some variables, like `supportContact` and `styleSheet` as well as the location of the error messages templates. Our sample configuration uses templates from this repo (in the `templates/` directory) and a [Bootstrap](http://getbootstrap/) stylesheet from a CDN. See the [official documentation](https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPErrors) for more information on customizing Shibboleth SP errors.
+Custom error messages are configured in the `<Errors/>` element. You can set some variables, like `supportContact` and `styleSheet` as well as the location of the error messages templates. Our sample configuration uses templates from this repo (in the `templates/` directory) and a [Bootstrap](http://getbootstrap/) stylesheet from a CDN. 
+
+The `accessError.html` template contains a link to a special "diagnostic" page, which logs all available data and presents the user with a reference string to use when communicating with support. The diagnostic page is a simple PHP script and it requires additional configuration in Apache, see below.
+
+See the [official documentation](https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPErrors) for more information on customizing Shibboleth SP errors.
 
 ### Metadata providers
 
@@ -60,7 +64,7 @@ Set the paths to the key and the certificate, used by the SP in its communicatio
 
 ## Apache configuration
 
-## Variables
+### Variables
 
 Use the `config/apache22.conf` sample as a base for you configuration. You need to replace the variables with the appropriate values. Then, place the configuration fragment into your virtual host configuration.
 
@@ -70,6 +74,8 @@ Variables:
 * `SHONGO_AUTH_UTILS_DIR` - the dorectory where this repo is installed
 * `PERUN_WS_DIR` - the directory where Perun WS is installed
 
-## Access control
+### Access control
 
 The access control filter `acl/filter.xml` is used by Shibboleth SP, but it is specified in the Apache configuration for more flexibility. It can be changed without the need to restart the shibd daemon.
+
+In case of an *access* error, the `template/accessError.html` page is shown to the user. Currently it also contains a link to a "diagnostics" page. To be able to show that page, you have to configure it in Apache - see the sample configuration. The page should be protected by Shibboleth, but without any access control.
