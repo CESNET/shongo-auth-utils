@@ -18,7 +18,7 @@ if (file_put_contents($logFile, $msg, FILE_APPEND) === false) {
 
 ?>
 
-<?php include __DIR__ . '/../lib/includes/header.inc.php'; ?>
+<?php include __DIR__ . '/../../lib/includes/header.inc.php'; ?>
 
 <div class="container">
     <h1>Access error</h1>
@@ -31,4 +31,4 @@ if (file_put_contents($logFile, $msg, FILE_APPEND) === false) {
     </p>
 </div>
 
-<?php include __DIR__ . '/../lib/includes/footer.inc.php'; ?>
+<?php include __DIR__ . '/../../lib/includes/footer.inc.php'; ?>
